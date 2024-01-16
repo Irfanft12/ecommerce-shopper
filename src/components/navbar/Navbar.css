@@ -38,11 +38,17 @@
     border-radius: 10px;
     background-color: #ff4141;
 }
-.mobile-nav-menu a,
 .nav-menu a {
     position: relative;
     padding-bottom: 8px;
 }
+.mobile-nav-menu a {
+    position: relative;
+    padding-bottom: 4px;
+    margin: 5px 0;
+    display: inline-block;
+}
+.mobile-nav-menu a:before,
 .nav-menu a:before {
     content: "";
     width: 70px;
@@ -52,6 +58,7 @@
     left: 0;
     bottom: 0;
 }
+.mobile-nav-menu a.active:before,
 .nav-menu a.active:before {
     background-color: #eb423f;
 }
