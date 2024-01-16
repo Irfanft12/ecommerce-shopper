@@ -84,6 +84,8 @@
     padding-left: 20px;
     height: 58px;
     background-color: #eaeaea;
+    display: flex;
+    justify-content: flex-end;
 }
 .cart-item-promo-box input {
     border: none;

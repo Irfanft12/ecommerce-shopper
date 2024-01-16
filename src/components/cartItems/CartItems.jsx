@@ -6,12 +6,12 @@ import removeIcon from "../../assets/cart_cross_icon.png"
 import "./cartItems.css"
 
 export default function CartItems() {
-    const {allProducts, cartItems, removeFromCart, getTotalCartAmount, toggleMobileMenu} = useContext(ShopContext)
+    const {allProducts, cartItems, removeFromCart, getTotalCartAmount, closeMobileMenu} = useContext(ShopContext)
 
     useEffect(() => {
-        toggleMobileMenu(false)
-        console.log("useeffect")
+        closeMobileMenu()
     }, [])
+
     return (
         <div className="cart-items">
             <div className="cart-table">

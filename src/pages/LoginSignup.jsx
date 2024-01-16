@@ -1,6 +1,15 @@
+import { useContext, useEffect } from "react"
+import { ShopContext } from "../context/shopContext"
+
 import "./css/loginsignup.css"
 
 export default function LoginSignup() {
+    const {closeMobileMenu} = useContext(ShopContext)
+
+    useEffect(() => {
+        closeMobileMenu()
+    }, [])
+
     return (
         <div className="loginsignup">
             <div className="loginsignup-container">
