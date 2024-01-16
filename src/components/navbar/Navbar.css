@@ -38,6 +38,23 @@
     border-radius: 10px;
     background-color: #ff4141;
 }
+.mobile-nav-menu a,
+.nav-menu a {
+    position: relative;
+    padding-bottom: 8px;
+}
+.nav-menu a:before {
+    content: "";
+    width: 70px;
+    height: 3px;
+    background-color: transparent;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.nav-menu a.active:before {
+    background-color: #eb423f;
+}
 .nav-login-cart {
     display: flex;
     align-items: center;
