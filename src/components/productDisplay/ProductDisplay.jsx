@@ -13,13 +13,14 @@ export default function ProductDisplay(props) {
         <div className="product-display">
             <div className="product-display-left">
                 <div className="product-display-img-list">
-                    <img src={product.image} alt="" />
-                    <img src={product.image} alt="" />
-                    <img src={product.image} alt="" />
-                    <img src={product.image} alt="" />
+                    <img src={product.image} alt={product.name} />
                 </div>
                 <div className="product-display-img">
-                    <img className="product-display-main-image" src={product.image} alt="" />
+                    <img
+                        className="product-display-main-image"
+                        src={product.image}
+                        alt={product.name}
+                    />
                 </div>
             </div>
             <div className="product-display-right">
