@@ -43,6 +43,11 @@
     color: white;
     font-size: 22px;
     font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+.hero-latest-btn:hover {
+    color: white;
 }
 .hero-right {
     flex: 1;
