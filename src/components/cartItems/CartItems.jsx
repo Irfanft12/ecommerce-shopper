@@ -47,6 +47,7 @@ export default function CartItems() {
                                 <div className="cart-quantity-control">
                                     <button
                                         onClick={() => updateCartQuantity(item.id, cartItems[item.id] - 1)}
+                                        disabled={cartItems[item.id] <= 1}
                                         aria-label="Decrease quantity"
                                     >
                                         −
