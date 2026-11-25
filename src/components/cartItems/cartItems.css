@@ -136,3 +136,33 @@
     }
     
 }
+
+.cart-quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+}
+
+.cart-quantity-control button {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #e2e2e2;
+    background-color: #ffffff;
+    color: #171717;
+    font-size: 20px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.cart-quantity-control button:hover {
+    background-color: #f2f2f2;
+}
+
+.cart-quantity-control span {
+    min-width: 20px;
+    text-align: center;
+}
