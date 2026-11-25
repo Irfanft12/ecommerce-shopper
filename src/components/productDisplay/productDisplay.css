@@ -17,6 +17,8 @@
 .product-display-main-image {
     width: 586px;
     height: 700px;
+    object-fit: contain;
+    background-color: #f8f8f8;
 }
 .product-display-right {
     margin: 0 70px;
