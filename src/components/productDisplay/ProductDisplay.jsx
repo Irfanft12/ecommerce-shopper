@@ -37,7 +37,11 @@ export default function ProductDisplay(props) {
                     <div className="product-display-right-prices-new">${product.new_price}</div>
                 </div>
                 <div className="product-display-right-description">
-                    A lightweight, usually knitted, pullover shirt, close fitting, a roung neckline and short sleeves, worn as an undershirt or outer garment.
+                    {product.category === "men"
+                        ? "Discover stylish men's clothing designed for everyday comfort and a modern look."
+                        : product.category === "women"
+                        ? "Explore stylish women's clothing that combines comfort, elegance, and everyday versatility."
+                        : "Explore comfortable and stylish kids' clothing, designed for everyday activities."}
                 </div>
                 <div className="product-display-right-size-wrapper">
                     <h1>Select size</h1>
