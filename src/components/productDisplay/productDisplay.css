@@ -1,15 +1,16 @@
 .product-display {
     display: flex;
     margin: 0 170px;
+    gap: 40px;
 }
+
 .product-display-left {
-    display: flex;
-    gap: 17px;
+    flex: 1;
+    min-width: 0;
 }
+
 .product-display-img-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    display: none;
 }
 .product-display-img-list img {
     height: 163px;
