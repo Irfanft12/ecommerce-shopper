@@ -5,7 +5,7 @@
 }
 
 .product-display-left {
-    flex: 1;
+    flex: 0 0 586px;
     min-width: 0;
 }
 
@@ -16,13 +16,17 @@
     height: 163px;
 }
 .product-display-main-image {
-    width: 586px;
+    display: block;
+    width: 100%;
+    max-width: 586px;
     height: 700px;
     object-fit: contain;
     background-color: #f8f8f8;
 }
 .product-display-right {
-    margin: 0 70px;
+    flex: 1;
+    min-width: 0;
+    margin: 0 0 0 70px;
     display: flex;
     flex-direction: column;
 }
