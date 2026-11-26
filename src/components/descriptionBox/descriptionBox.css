@@ -26,6 +26,32 @@
     padding: 48px;
     padding-bottom: 70px;
 }
+
+
+.description-box-nav-box {
+    background-color: #ffffff;
+    color: #555555;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.2s ease;
+}
+
+.description-box-nav-box.active {
+    background-color: #ffffff;
+    color: #171717;
+    border-bottom: 2px solid #ff4141;
+}
+
+.description-box-nav-box.fade {
+    background-color: #fbfbfb;
+    color: #555555;
+}
+
+.description-box-no-reviews {
+    min-height: 120px;
+}
+
+
 @media (max-width: 767px) {
     .description-box {
         margin: 20px 20px;
