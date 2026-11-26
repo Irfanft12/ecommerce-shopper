@@ -32,10 +32,33 @@ export default function Checkout() {
             <h1>Checkout</h1>
 
             <div className="checkout-container">
+                
                 <div className="checkout-details">
                     <h2>Delivery Information</h2>
-                    {/* Customer form will go here */}
+                
+                    <form className="checkout-form">
+                        <input type="text" placeholder="Full Name" required />
+                        <input type="email" placeholder="Email Address" required />
+                        <input type="tel" placeholder="Phone Number" required />
+                        <input type="text" placeholder="Street Address" required />
+                
+                        <div className="checkout-form-row">
+                            <input type="text" placeholder="City" required />
+                            <input type="text" placeholder="State" required />
+                        </div>
+                
+                        <input
+                            type="text"
+                            placeholder="PIN Code"
+                            maxLength="6"
+                            pattern="[0-9]{6}"
+                            required
+                        />
+                
+                        <button type="submit">PLACE ORDER</button>
+                    </form>
                 </div>
+
 
                 <div className="checkout-summary">
                     <h2>Order Summary</h2>
