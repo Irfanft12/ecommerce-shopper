@@ -101,6 +101,16 @@
     color: #ff4141;
 }
 
+.product-display-right button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.product-display-right button:focus-visible {
+    outline: 2px solid #ff4141;
+    outline-offset: 3px;
+}
+
 
 @media (max-width: 767px) {
     .product-display {
