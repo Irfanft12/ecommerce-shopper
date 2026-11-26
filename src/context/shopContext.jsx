@@ -43,6 +43,10 @@ const ShopContextProvider = (props) => {
         }))
     }
 
+    const clearCart = () => {
+        setCartItems({})
+    }
+
     const getTotalCartAmount = () => {
         let totalAmount = 0
 
@@ -83,6 +87,7 @@ const ShopContextProvider = (props) => {
         addToCart,
         removeFromCart,
         updateCartQuantity,
+        clearCart,
         showMenu,
         toggleMobileMenu,
         closeMobileMenu
