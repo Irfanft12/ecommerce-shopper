@@ -70,3 +70,72 @@
         padding: 20px;
     }
 }
+
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.checkout-form input {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    outline: none;
+    font-family: inherit;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.checkout-form input:focus {
+    border-color: #ff5a5a;
+}
+
+.checkout-form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.checkout-form-row input {
+    flex: 1;
+    min-width: 0;
+}
+
+.checkout-form button {
+    width: 200px;
+    height: 52px;
+    border: none;
+    border-radius: 3px;
+    background-color: #ff5a5a;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease,
+                transform 0.2s ease;
+}
+
+.checkout-form button:hover {
+    background-color: #e94343;
+    transform: translateY(-2px);
+}
+
+.checkout-form button:focus-visible {
+    outline: 2px solid #ff5a5a;
+    outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+    .checkout-form-row {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .checkout-form button {
+        width: 100%;
+    }
+}
+
