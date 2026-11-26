@@ -1,11 +1,13 @@
 
 import { useContext, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import { ShopContext } from "../../context/shopContext"
 import removeIcon from "../../assets/cart_cross_icon.png"
 
 import "./cartItems.css"
 
 export default function CartItems() {
+    const navigate = useNavigate()
     const {
         allProducts,
         cartItems,
@@ -120,7 +122,9 @@ export default function CartItems() {
                         </div>
                     </div>
 
-                    <button>PROCEED TO CHECKOUT</button>
+                    <button onClick={() => navigate("/checkout")}>
+                        PROCEED TO CHECKOUT
+                    </button>
                 </div>
 
                 <div className="cart-items-promo-code">
