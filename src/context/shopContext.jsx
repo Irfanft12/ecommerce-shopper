@@ -12,10 +12,23 @@ const ShopContextProvider = (props) => {
             return {}
         }
     })
+
+    const [orders, setOrders] = useState(() => {
+        try {
+            const savedOrders = localStorage.getItem("orders")
+            return savedOrders ? JSON.parse(savedOrders) : []
+        } catch {
+            return []
+        }
+    })
     
     useEffect(() => {
         localStorage.setItem("cartItems", JSON.stringify(cartItems))
     }, [cartItems])
+
+    useEffect(() => {
+        localStorage.setItem("orders", JSON.stringify(orders))
+    }, [orders])
     
     const [showMenu, setShowMenu] = useState(false)
 
@@ -45,6 +58,10 @@ const ShopContextProvider = (props) => {
 
     const clearCart = () => {
         setCartItems({})
+    }
+
+    const saveOrder = (order) => {
+        setOrders(prev => [order, ...prev])
     }
 
     const getTotalCartAmount = () => {
@@ -90,7 +107,9 @@ const ShopContextProvider = (props) => {
         clearCart,
         showMenu,
         toggleMobileMenu,
-        closeMobileMenu
+        closeMobileMenu,
+        orders,
+        saveOrder
     }
 
     return (
