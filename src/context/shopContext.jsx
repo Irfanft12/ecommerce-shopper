@@ -1,11 +1,22 @@
-
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import allProducts from "../assets/all_product"
 
 export const ShopContext = createContext(null)
 
 const ShopContextProvider = (props) => {
-    const [cartItems, setCartItems] = useState({})
+    const [cartItems, setCartItems] = useState(() => {
+        try {
+            const savedCart = localStorage.getItem("cartItems")
+            return savedCart ? JSON.parse(savedCart) : {}
+        } catch {
+            return {}
+        }
+    })
+    
+    useEffect(() => {
+        localStorage.setItem("cartItems", JSON.stringify(cartItems))
+    }, [cartItems])
+    
     const [showMenu, setShowMenu] = useState(false)
 
     const addToCart = (itemId, size) => {
