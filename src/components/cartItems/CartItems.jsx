@@ -10,6 +10,7 @@ export default function CartItems() {
         allProducts,
         cartItems,
         addToCart,
+        removeFromCart,
         updateCartQuantity,
         getTotalCartAmount,
         closeMobileMenu
@@ -31,52 +32,66 @@ export default function CartItems() {
                     <p>Remove</p>
                 </div>
 
-                {allProducts?.map(item => {
-                    if (cartItems[item.id] > 0) {
-                        return (
-                            <div key={item.id} className="cart-items-format cart-items-format-main">
-                                <img
-                                    src={item.image}
-                                    alt={item.name}
-                                    className="cart-icon-product-icon"
-                                />
+                {Object.entries(cartItems).map(([cartKey, quantity]) => {
+                    if (quantity <= 0) return null
 
+                    const [itemId, size] = cartKey.split("_")
+                    const item = allProducts.find(
+                        product => product.id === Number(itemId)
+                    )
+
+                    if (!item) return null
+
+                    return (
+                        <div
+                            key={cartKey}
+                            className="cart-items-format cart-items-format-main"
+                        >
+                            <img
+                                src={item.image}
+                                alt={item.name}
+                                className="cart-icon-product-icon"
+                            />
+
+                            <div>
                                 <p>{item.name}</p>
-                                <p>${item.new_price}</p>
+                                <p className="cart-item-size">
+                                    Size: <strong>{size}</strong>
+                                </p>
+                            </div>
 
-                                <div className="cart-quantity-control">
-                                    <button
-                                        onClick={() => updateCartQuantity(item.id, cartItems[item.id] - 1)}
-                                        disabled={cartItems[item.id] <= 1}
-                                        aria-label="Decrease quantity"
-                                    >
-                                        −
-                                    </button>
+                            <p>${item.new_price}</p>
 
-                                    <span>{cartItems[item.id]}</span>
+                            <div className="cart-quantity-control">
+                                <button
+                                    onClick={() => updateCartQuantity(cartKey, quantity - 1)}
+                                    disabled={quantity <= 1}
+                                    aria-label="Decrease quantity"
+                                >
+                                    −
+                                </button>
 
-                                    <button
-                                        onClick={() => addToCart(item.id)}
-                                        aria-label="Increase quantity"
-                                    >
-                                        +
-                                    </button>
-                                </div>
-
-                                <p>${item.new_price * cartItems[item.id]}</p>
+                                <span>{quantity}</span>
 
                                 <button
-                                    className="cart-item-remove-icon"
-                                    onClick={() => updateCartQuantity(item.id, 0)}
-                                    aria-label="Remove product"
+                                    onClick={() => addToCart(item.id, size)}
+                                    aria-label="Increase quantity"
                                 >
-                                    <img src={removeIcon} alt="" />
+                                    +
                                 </button>
                             </div>
-                        )
-                    }
 
-                    return null
+                            <p>${item.new_price * quantity}</p>
+
+                            <button
+                                className="cart-item-remove-icon"
+                                onClick={() => removeFromCart(cartKey)}
+                                aria-label="Remove product"
+                            >
+                                <img src={removeIcon} alt="" />
+                            </button>
+                        </div>
+                    )
                 })}
             </div>
 
