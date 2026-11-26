@@ -1,6 +1,7 @@
 
 import { useContext, useEffect } from "react"
 import { ShopContext } from "../context/shopContext"
+import "./css/checkout.css"
 
 export default function Checkout() {
     const {
