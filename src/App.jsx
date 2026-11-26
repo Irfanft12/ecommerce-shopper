@@ -5,6 +5,7 @@ import Product from './pages/Product'
 import Navbar from './components/navbar/Navbar'
 import Cart from './pages/Cart'
 import Checkout from './pages/Checkout'
+import OrderHistory from './pages/OrderHistory';
 import LoginSignup from './pages/LoginSignup'
 import Footer from './components/footer/Footer'
 
@@ -29,6 +30,7 @@ function App() {
           </Route>
           <Route path='cart' element={<Cart />} />
           <Route path='/checkout' element={<Checkout />} />
+          <Route path='/orders' element={<OrderHistory />} />
           <Route path='login' element={<LoginSignup />} />
         </Routes>
         <Footer />
