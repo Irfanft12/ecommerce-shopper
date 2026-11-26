@@ -132,4 +132,16 @@
     .product-display-right-size {
         flex-wrap: wrap;
     }
+    .product-display-right-size {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 8px;
+    }
+
+    .product-display-right-size div {
+        flex: 1;
+        min-width: 0;
+        padding: 12px 5px;
+        text-align: center;
+    }
 }
