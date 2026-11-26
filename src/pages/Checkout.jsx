@@ -55,21 +55,46 @@ export default function Checkout() {
     if (orderDetails) {
         return (
             <div className="checkout">
-                <div className="checkout-details">
-                    <h1>Order Placed Successfully!</h1>
-                    <p>Thank you, {orderDetails.name}.</p>
-                    <p>Your demo order has been confirmed.</p>
-                    <h3>Order Number: {orderDetails.orderNumber}</h3>
-                    <h3>Order Total: ${orderDetails.total}</h3>
-
-                    <button
-                        className="checkout-home-button"
-                        onClick={() => navigate("/")}
-                    >
-                        CONTINUE SHOPPING
-                    </button>
+            <div className="order-success">
+                <div className="order-success-icon">
+                    ✓
                 </div>
+
+                <h1>Order Placed Successfully!</h1>
+
+                <p className="order-success-thanks">
+                    Thank you, {orderDetails.name}!
+                </p>
+
+                <p className="order-success-message">
+                    Your order has been confirmed successfully.
+                </p>
+
+                <div className="order-success-details">
+                    <div>
+                        <span>Order Number</span>
+                        <strong>{orderDetails.orderNumber}</strong>
+                    </div>
+
+                    <div>
+                        <span>Order Total</span>
+                        <strong>${orderDetails.total}</strong>
+                    </div>
+                </div>
+
+                <p className="order-demo-note">
+                    This is a demo order. No actual payment has been
+                    processed.
+                </p>
+
+                <button
+                    className="checkout-home-button"
+                    onClick={() => navigate("/")}
+                >
+                    CONTINUE SHOPPING
+                </button>
             </div>
+        </div>
         )
     }
 
