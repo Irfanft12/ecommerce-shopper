@@ -22,6 +22,7 @@ export default function Navbar() {
                 <li><NavLink to="men">Men</NavLink></li>
                 <li><NavLink to="women">Women</NavLink></li>
                 <li><NavLink to="kids">Kids</NavLink></li>
+                <Link to='/orders'>Order History</Link>
             </ul>
             {
                 showMenu &&   <ul className="mobile-nav-menu">
