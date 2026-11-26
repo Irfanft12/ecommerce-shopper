@@ -56,6 +56,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    img {
+        pointer-events: none;
+    }
 }
 @media (max-width: 767px) {
     .hero {
