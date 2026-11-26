@@ -87,6 +87,11 @@
     outline: none;
     cursor: pointer;
     border-radius: 0;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.product-display-right button:hover {
+    background-color: #e63232;
+    transform: translateY(-2px);
 }
 .product-display-right-category {
     margin-top: 10px;
