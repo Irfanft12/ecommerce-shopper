@@ -139,3 +139,18 @@
     }
 }
 
+.checkout-home-button {
+    margin-top: 25px;
+    padding: 16px 25px;
+    border: none;
+    background-color: #ff5a5a;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.checkout-home-button:hover {
+    background-color: #e94343;
+}
+
