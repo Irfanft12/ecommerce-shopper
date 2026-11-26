@@ -10,7 +10,8 @@ export default function Checkout() {
         cartItems,
         getTotalCartAmount,
         clearCart,
-        closeMobileMenu
+        closeMobileMenu,
+        saveOrder
     } = useContext(ShopContext)
 
     const navigate = useNavigate()
@@ -32,25 +33,43 @@ export default function Checkout() {
         })
         .filter(Boolean)
 
-    const handlePlaceOrder = (event) => {
-        event.preventDefault()
+    
+const handlePlaceOrder = (event) => {
+    event.preventDefault()
 
-        if (cartProducts.length === 0) {
-            alert("Your cart is empty.")
-            return
-        }
-
-        const formData = new FormData(event.currentTarget)
-
-        const order = {
-            orderNumber: `SHOP-${Date.now().toString().slice(-8)}`,
-            name: formData.get("fullName"),
-            total: getTotalCartAmount()
-        }
-
-        setOrderDetails(order)
-        clearCart()
+    if (cartProducts.length === 0) {
+        alert("Your cart is empty.")
+        return
     }
+
+    const formData = new FormData(event.currentTarget)
+
+    const order = {
+        orderNumber: `SHOP-${Date.now().toString().slice(-8)}`,
+        date: new Date().toISOString(),
+        name: formData.get("fullName"),
+        email: formData.get("email"),
+        phone: formData.get("phone"),
+        address: formData.get("address"),
+        city: formData.get("city"),
+        state: formData.get("state"),
+        pinCode: formData.get("pinCode"),
+        items: cartProducts.map(item => ({
+            id: item.id,
+            name: item.name,
+            image: item.image,
+            price: item.new_price,
+            size: item.size,
+            quantity: item.quantity
+        })),
+        total: getTotalCartAmount()
+    }
+
+    saveOrder(order)
+    setOrderDetails(order)
+    clearCart()
+}
+
 
     if (orderDetails) {
         return (
