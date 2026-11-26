@@ -103,6 +103,12 @@
     color: #ffffff;
     cursor: pointer;
 }
+.cart-item-size {
+    margin-top: 6px;
+    color: #777777;
+    font-size: 14px;
+}
+
 @media (max-width: 767px) {
     .cart-items {
         margin: 20px 20px;
