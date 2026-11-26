@@ -19,7 +19,7 @@ export default function ProductDisplay(props) {
             return
         }
 
-        addToCart(product.id)
+        addToCart(product.id, selectedSize)
     }
 
     return (
