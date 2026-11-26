@@ -4,6 +4,7 @@ import ShopCategory from './pages/ShopCategory'
 import Product from './pages/Product'
 import Navbar from './components/navbar/Navbar'
 import Cart from './pages/Cart'
+import Checkout from './pages/Checkout'
 import LoginSignup from './pages/LoginSignup'
 import Footer from './components/footer/Footer'
 
@@ -27,6 +28,7 @@ function App() {
             <Route path=':productId' element={<Product />} />
           </Route>
           <Route path='cart' element={<Cart />} />
+          <Route path='/checkout' element={<Checkout />} />
           <Route path='login' element={<LoginSignup />} />
         </Routes>
         <Footer />
