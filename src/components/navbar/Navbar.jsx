@@ -4,7 +4,7 @@ import logo from "../../assets/logo.png"
 import cartIcon from "../../assets/cart_icon.png"
 import { Link, NavLink } from "react-router-dom";
 import { ShopContext } from "../../context/shopContext";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineHistory, AiOutlineMenu } from "react-icons/ai";
 import "./Navbar.css";
 
 
@@ -22,7 +22,6 @@ export default function Navbar() {
                 <li><NavLink to="men">Men</NavLink></li>
                 <li><NavLink to="women">Women</NavLink></li>
                 <li><NavLink to="kids">Kids</NavLink></li>
-                <Link to='/orders'>Order History</Link>
             </ul>
             {
                 showMenu &&   <ul className="mobile-nav-menu">
@@ -34,6 +33,14 @@ export default function Navbar() {
             }
             <div className="nav-login-cart">
                 <Link to="/login"><button>Login</button></Link>
+                <Link
+                    to="/orders"
+                    className="history-link"
+                    title="My Orders"
+                    aria-label="My Orders"
+                >
+                    <AiOutlineHistory size={28} />
+                </Link>
                 <Link className="cart-link" to="/cart"><img className="cart-icon" src={cartIcon} alt="" /></Link>
                 <div className="nav-cart-count">{getTotalCartItems()}</div>
                 <button className="menu-icon" onClick={() => toggleMobileMenu()}><AiOutlineMenu size="25px" /></button>
