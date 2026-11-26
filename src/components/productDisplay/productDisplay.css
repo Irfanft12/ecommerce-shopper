@@ -95,6 +95,13 @@
     font-weight: 600;
 }
 
+.product-display-right-size > div.selected {
+    border: 1px solid #ff4141;
+    background-color: #fff0f0;
+    color: #ff4141;
+}
+
+
 @media (max-width: 767px) {
     .product-display {
         margin: 20px 15px;
