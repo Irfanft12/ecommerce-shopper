@@ -24,7 +24,7 @@ export default function CartItems() {
 
     useEffect(() => {
         closeMobileMenu()
-    }, [])
+    }, [closeMobileMenu])
 
     return (
         !hasCartItems ? (
