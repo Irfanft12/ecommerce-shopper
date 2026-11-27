@@ -9,7 +9,9 @@ export default function Checkout() {
         allProducts,
         cartItems,
         getTotalCartAmount,
-        clearCart,
+        getDiscountedCartAmount,
+        appliedPromoCode,
+        clearCart,        
         closeMobileMenu,
         saveOrder
     } = useContext(ShopContext)
@@ -37,6 +39,9 @@ export default function Checkout() {
     
 const handlePlaceOrder = (event) => {
     event.preventDefault()
+    const subtotal = getTotalCartAmount()
+    const discount = subtotal - getDiscountedCartAmount()
+    const finalTotal = getDiscountedCartAmount()
 
     if (isSubmitting) return
     
@@ -68,7 +73,10 @@ const handlePlaceOrder = (event) => {
             size: item.size,
             quantity: item.quantity
         })),
-        total: getTotalCartAmount()
+        subtotal,
+        discount,
+        promoCode: appliedPromoCode,
+        total: finalTotal
     }
 
     saveOrder(order)
