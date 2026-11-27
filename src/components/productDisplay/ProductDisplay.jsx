@@ -1,4 +1,5 @@
 
+import PropTypes from "prop-types"
 import starIcon from "../../assets/star_icon.png"
 import starDullIcon from "../../assets/star_dull_icon.png"
 
@@ -92,4 +93,15 @@ export default function ProductDisplay(props) {
             </div>
         </div>
     )
+}
+
+ProductDisplay.propTypes = {
+    product: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        image: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        old_price: PropTypes.number.isRequired,
+        new_price: PropTypes.number.isRequired,
+        category: PropTypes.string.isRequired
+    }).isRequired
 }
