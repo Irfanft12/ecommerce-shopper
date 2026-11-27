@@ -4,7 +4,7 @@ import starIcon from "../../assets/star_icon.png"
 import starDullIcon from "../../assets/star_dull_icon.png"
 
 import "./productDisplay.css"
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { ShopContext } from "../../context/shopContext"
 
 export default function ProductDisplay(props) {
@@ -12,6 +12,16 @@ export default function ProductDisplay(props) {
     const { addToCart } = useContext(ShopContext)
     const [selectedSize, setSelectedSize] = useState("")
     const [isAdded, setIsAdded] = useState(false)
+
+    useEffect(() => {
+        if (!isAdded) return
+    
+        const timer = setTimeout(() => {
+            setIsAdded(false)
+        }, 3000)
+    
+        return () => clearTimeout(timer)
+    }, [isAdded])
 
     const sizes = ["S", "M", "L", "XL", "XXL"]
 
