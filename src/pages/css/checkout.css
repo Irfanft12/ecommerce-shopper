@@ -337,4 +337,29 @@
     }
 }
 
+/* Checkout price breakdown */
+.checkout-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.checkout-total-row p {
+    margin: 0;
+    font-size: 15px;
+}
+
+.checkout-discount {
+    color: #218838;
+}
+
+.checkout-final-total h3 {
+    margin: 0;
+    font-size: 21px;
+    color: #232f3e;
+}
+
 
