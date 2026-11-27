@@ -234,7 +234,22 @@ const handlePlaceOrder = (event) => {
                         </div>
                     ))}
 
-                    <h3>Total: ${getTotalCartAmount()}</h3>
+                    <div className="checkout-total-row">
+    <p>Subtotal</p>
+    <p>${getTotalCartAmount().toFixed(2)}</p>
+</div>
+
+{appliedPromoCode && (
+    <div className="checkout-total-row checkout-discount">
+        <p>Discount (10%)</p>
+        <p>-${(getTotalCartAmount() - getDiscountedCartAmount()).toFixed(2)}</p>
+    </div>
+)}
+
+<div className="checkout-total-row checkout-final-total">
+    <h3>Total</h3>
+    <h3>${getDiscountedCartAmount().toFixed(2)}</h3>
+</div>
                 </div>
             </div>
         </div>
