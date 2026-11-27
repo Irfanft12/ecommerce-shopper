@@ -27,6 +27,15 @@ export default function CartItems() {
     }, [])
 
     return (
+        !hasCartItems ? (
+        <div className="cart-empty">
+            <h2>Your cart is empty</h2>
+            <p>Looks like you haven't added anything to your cart yet.</p>
+            <button onClick={() => navigate("/")}>
+                CONTINUE SHOPPING
+            </button>
+        </div>
+    ) : (
         <div className="cart-items">
             <div className="cart-table">
                 <div className="cart-items-format-main">
@@ -145,4 +154,5 @@ export default function CartItems() {
             </div>
         </div>
     )
+)
 }
