@@ -178,7 +178,9 @@ export default function CartItems() {
 
     {appliedPromoCode ? (
         <div>
-            <p>{appliedPromoCode} applied successfully!</p>
+            <p className="promo-message promo-success">
+                {appliedPromoCode} applied successfully!
+            </p>
             <button onClick={handleRemovePromo}>
                 Remove
             </button>
@@ -197,7 +199,9 @@ export default function CartItems() {
         </div>
     )}
 
-    {!appliedPromoCode && promoMessage && <p>{promoMessage}</p>}
+    {!appliedPromoCode && promoMessage && (
+        <p className="promo-message promo-error">{promoMessage}</p>
+    )}
 </div>
             </div>
         </div>
