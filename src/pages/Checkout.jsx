@@ -124,7 +124,13 @@ const handlePlaceOrder = (event) => {
             <div className="checkout-container">
                 <div className="checkout-details">
                     <h2>Delivery Information</h2>
-
+                    <button
+                        type="button"
+                        className="checkout-back-button"
+                        onClick={() => navigate("/cart")}
+                    >
+                        ← Back to Cart
+                    </button>
                     <form
                         className="checkout-form"
                         onSubmit={handlePlaceOrder}
