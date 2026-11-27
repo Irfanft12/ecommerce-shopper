@@ -8,7 +8,7 @@ export default function LoginSignup() {
 
     useEffect(() => {
         closeMobileMenu()
-    }, [])
+    }, [closeMobileMenu])
 
     return (
         <div className="loginsignup">
