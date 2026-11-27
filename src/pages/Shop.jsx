@@ -11,7 +11,7 @@ export default function Shop() {
 
     useEffect(() => {
         closeMobileMenu()
-    }, [])
+    }, [closeMobileMenu])
 
     return (
         <div>
