@@ -8,7 +8,7 @@ export default function OrderHistory() {
 
     useEffect(() => {
         closeMobileMenu()
-    }, [])
+    }, [closeMobileMenu])
 
     return (
         <div className="order-history">
