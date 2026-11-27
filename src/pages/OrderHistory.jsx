@@ -55,6 +55,34 @@ export default function OrderHistory() {
                                 ))}
                             </div>
 
+                            <div className="order-history-price-breakdown">
+    <h4>Payment Summary</h4>
+
+    <div>
+        <span>Subtotal</span>
+        <span>
+            ${(order.subtotal ?? order.items.reduce(
+                (sum, item) => sum + item.price * item.quantity,
+                0
+            )).toFixed(2)}
+        </span>
+    </div>
+
+    {order.discount > 0 && (
+        <div className="order-history-discount">
+            <span>
+                Discount {order.promoCode ? `(${order.promoCode})` : ""}
+            </span>
+            <span>-${order.discount.toFixed(2)}</span>
+        </div>
+    )}
+
+    <div className="order-history-final-total">
+        <strong>Total</strong>
+        <strong>${order.total.toFixed(2)}</strong>
+    </div>
+</div>
+
                             <div className="order-history-address">
                                 <h4>Delivery Address</h4>
                                 <p>{order.name}</p>
