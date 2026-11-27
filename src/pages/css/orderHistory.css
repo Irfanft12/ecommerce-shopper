@@ -134,3 +134,37 @@
         height: 90px;
     }
 }
+
+
+.order-history-price-breakdown {
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.order-history-price-breakdown h4 {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.order-history-price-breakdown > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px 0;
+    color: #555;
+    font-size: 14px;
+}
+
+.order-history-price-breakdown .order-history-discount {
+    color: #168a45;
+}
+
+.order-history-price-breakdown .order-history-final-total {
+    margin-top: 18px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    color: #222;
+    font-size: 17px;
+}
+
