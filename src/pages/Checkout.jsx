@@ -39,12 +39,14 @@ const handlePlaceOrder = (event) => {
     event.preventDefault()
 
     if (isSubmitting) return
-    setIsSubmitting(true)
+    
 
     if (cartProducts.length === 0) {
         alert("Your cart is empty.")
         return
     }
+
+    setIsSubmitting(true)
 
     const formData = new FormData(event.currentTarget)
 
@@ -206,8 +208,8 @@ const handlePlaceOrder = (event) => {
                             required
                         />
 
-                        <button type="submit">
-                            PLACE ORDER
+                        <button type="submit" disabled={isSubmitting}>
+                            {isSubmitting ? "PLACING ORDER..." : "PLACE ORDER"}
                         </button>
                     </form>
                 </div>
