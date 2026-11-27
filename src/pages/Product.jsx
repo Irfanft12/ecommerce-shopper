@@ -13,7 +13,7 @@ export default function Product() {
 
     useEffect(() => {
         closeMobileMenu()
-    }, [])
+    }, [closeMobileMenu])
 
     return (
         <div>
