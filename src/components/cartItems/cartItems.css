@@ -271,3 +271,14 @@
 .promo-error {
     color: #dc3545 !important;
 }
+.promo-applied {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.promo-applied .promo-message {
+    margin-top: 8px;
+    margin-bottom: 0;
+}
