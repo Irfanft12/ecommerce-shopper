@@ -1,4 +1,6 @@
+
 import { useContext } from "react";
+import PropTypes from "prop-types";
 import { ShopContext } from "../context/shopContext";
 import dropdownIcon from "../assets/dropdown_icon.png";
 import Item from "../components/item/Item";
@@ -11,6 +13,7 @@ export default function ShopCategory(props) {
   return (
     <div className="shop-category">
       <img className="shopcategory-banner" src={props.banner} alt="" />
+
       <div className="shop-category-index-sort">
         <p>
           <span>Showing 1-12</span> out of 36 products
@@ -19,6 +22,7 @@ export default function ShopCategory(props) {
           Sort by <img src={dropdownIcon} alt="" />
         </div>
       </div>
+
       <div className="shopcategory-products">
         {allProducts.map((item) => {
           if (props.category === item.category) {
@@ -32,15 +36,19 @@ export default function ShopCategory(props) {
                 oldPrice={item.old_price}
               />
             );
-          } else {
-            return null
           }
-            
+          return null;
         })}
       </div>
+
       <div className="shopcategory-loadmore">
         Explore More
       </div>
     </div>
   );
 }
+
+ShopCategory.propTypes = {
+  banner: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+};
