@@ -20,7 +20,7 @@ export default function Checkout() {
 
     useEffect(() => {
         closeMobileMenu()
-    }, [])
+    }, [closeMobileMenu])
 
     const cartProducts = Object.entries(cartItems)
         .filter(([, quantity]) => quantity > 0)
