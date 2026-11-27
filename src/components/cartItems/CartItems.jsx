@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { ShopContext } from "../../context/shopContext"
 import removeIcon from "../../assets/cart_cross_icon.png"
@@ -7,6 +7,9 @@ import "./cartItems.css"
 
 export default function CartItems() {
     const navigate = useNavigate()
+    const [promoInput, setPromoInput] = useState("")
+    const [promoMessage, setPromoMessage] = useState("")
+
     const {
         allProducts,
         cartItems,
@@ -14,8 +17,29 @@ export default function CartItems() {
         removeFromCart,
         updateCartQuantity,
         getTotalCartAmount,
-        closeMobileMenu
+        closeMobileMenu,
+        appliedPromoCode,
+        applyPromoCode,
+        removePromoCode,
+        getDiscountedCartAmount
     } = useContext(ShopContext)
+
+    const handleApplyPromo = () => {
+        const isApplied = applyPromoCode(promoInput)
+    
+        if (isApplied) {
+            setPromoMessage("Promo code applied! You saved 10%.")
+            setPromoInput("")
+        } else {
+            setPromoMessage("Invalid promo code. Try SAVE10.")
+        }
+    }
+
+    const handleRemovePromo = () => {
+        removePromoCode()
+        setPromoMessage("")
+    }
+    
 
     const hasCartItems = Object.values(cartItems).some(
         quantity => quantity > 0
@@ -111,45 +135,70 @@ export default function CartItems() {
 
             <div className="cart-items-down">
                 <div className="cart-items-total">
-                    <h1>Cart Totals</h1>
+    <h1>Cart Totals</h1>
 
-                    <div>
-                        <div className="cart-items-total-item">
-                            <p>Subtotal</p>
-                            <p>${getTotalCartAmount()}</p>
-                        </div>
+    <div>
+        <div className="cart-items-total-item">
+            <p>Subtotal</p>
+            <p>${getTotalCartAmount()}</p>
+        </div>
 
-                        <hr />
+        {appliedPromoCode && (
+            <div className="cart-items-total-item">
+                <p>Discount (10%)</p>
+                <p>-${(getTotalCartAmount() * 0.10).toFixed(2)}</p>
+            </div>
+        )}
 
-                        <div className="cart-items-total-item">
-                            <p>Shipping Fee</p>
-                            <p>Free</p>
-                        </div>
+        <hr />
 
-                        <hr />
+        <div className="cart-items-total-item">
+            <p>Shipping Fee</p>
+            <p>Free</p>
+        </div>
 
-                        <div className="cart-items-total-item">
-                            <h3>Total</h3>
-                            <h3>${getTotalCartAmount()}</h3>
-                        </div>
-                    </div>
+        <hr />
 
-                    <button
-                        onClick={() => navigate("/checkout")}
-                        disabled={!hasCartItems}
-                    >
-                        PROCEED TO CHECKOUT
-                    </button>
-                </div>
+        <div className="cart-items-total-item">
+            <h3>Total</h3>
+            <h3>${getDiscountedCartAmount().toFixed(2)}</h3>
+        </div>
+    </div>
+
+    <button
+        onClick={() => navigate("/checkout")}
+        disabled={!hasCartItems}
+    >
+        PROCEED TO CHECKOUT
+    </button>
+</div>
 
                 <div className="cart-items-promo-code">
-                    <p>If you have a promo code, enter it here</p>
+    <p>If you have a promo code, enter it here</p>
 
-                    <div className="cart-item-promo-box">
-                        <input type="text" placeholder="promo code" />
-                        <button>Submit</button>
-                    </div>
-                </div>
+    {appliedPromoCode ? (
+        <div>
+            <p>{appliedPromoCode} applied successfully!</p>
+            <button onClick={handleRemovePromo}>
+                Remove
+            </button>
+        </div>
+    ) : (
+        <div className="cart-item-promo-box">
+            <input
+                type="text"
+                placeholder="promo code"
+                value={promoInput}
+                onChange={(e) => setPromoInput(e.target.value)}
+            />
+            <button onClick={handleApplyPromo}>
+                Apply
+            </button>
+        </div>
+    )}
+
+    {!appliedPromoCode && promoMessage && <p>{promoMessage}</p>}
+</div>
             </div>
         </div>
     )
