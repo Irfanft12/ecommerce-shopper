@@ -1,5 +1,4 @@
-
-import { createContext, useEffect, useState } from "react";
+import { createContext, useCallback, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import allProducts from "../assets/all_product"
 
@@ -94,9 +93,9 @@ const ShopContextProvider = (props) => {
         setShowMenu(!showMenu)
     }
 
-    function closeMobileMenu() {
+    const closeMobileMenu = useCallback(() => {
         setShowMenu(false)
-    }
+    }, [])
 
     const contextValue = {
         allProducts,
