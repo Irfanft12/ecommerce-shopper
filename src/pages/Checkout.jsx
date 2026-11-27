@@ -16,6 +16,7 @@ export default function Checkout() {
 
     const navigate = useNavigate()
     const [orderDetails, setOrderDetails] = useState(null)
+    const [isSubmitting, setIsSubmitting] = useState(false)
 
     useEffect(() => {
         closeMobileMenu()
@@ -36,6 +37,9 @@ export default function Checkout() {
     
 const handlePlaceOrder = (event) => {
     event.preventDefault()
+
+    if (isSubmitting) return
+    setIsSubmitting(true)
 
     if (cartProducts.length === 0) {
         alert("Your cart is empty.")
