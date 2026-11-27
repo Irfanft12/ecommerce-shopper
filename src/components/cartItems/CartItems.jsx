@@ -1,4 +1,3 @@
-
 import { useContext, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { ShopContext } from "../../context/shopContext"
