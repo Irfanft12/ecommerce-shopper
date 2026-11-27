@@ -18,6 +18,10 @@ export default function CartItems() {
         closeMobileMenu
     } = useContext(ShopContext)
 
+    const hasCartItems = Object.values(cartItems).some(
+        quantity => quantity > 0
+    )
+
     useEffect(() => {
         closeMobileMenu()
     }, [])
@@ -122,7 +126,10 @@ export default function CartItems() {
                         </div>
                     </div>
 
-                    <button onClick={() => navigate("/checkout")}>
+                    <button
+                        onClick={() => navigate("/checkout")}
+                        disabled={!hasCartItems}
+                    >
                         PROCEED TO CHECKOUT
                     </button>
                 </div>
