@@ -34,7 +34,7 @@ export default function OrderHistory() {
                                     </p>
                                 </div>
 
-                                <strong>${order.total}</strong>
+                                <strong>${Number(order.total).toFixed(2)}</strong>
                             </div>
 
                             <div className="order-history-products">
