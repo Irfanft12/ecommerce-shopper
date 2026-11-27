@@ -32,8 +32,18 @@ const ShopContextProvider = (props) => {
     }, [orders])
 
     const [showMenu, setShowMenu] = useState(false)
-    const [appliedPromoCode, setAppliedPromoCode] = useState("")
-    const [discountPercentage, setDiscountPercentage] = useState(0)
+    const [appliedPromoCode, setAppliedPromoCode] = useState(() => {
+        return localStorage.getItem("appliedPromoCode") || ""
+    })
+    
+    const [discountPercentage, setDiscountPercentage] = useState(() => {
+        return Number(localStorage.getItem("discountPercentage")) || 0
+    })
+
+    useEffect(() => {
+    localStorage.setItem("appliedPromoCode", appliedPromoCode)
+    localStorage.setItem("discountPercentage", discountPercentage)
+}, [appliedPromoCode, discountPercentage])
 
     const addToCart = (itemId, size) => {
         const cartKey = `${itemId}_${size}`
