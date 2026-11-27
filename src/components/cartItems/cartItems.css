@@ -256,3 +256,18 @@
         font-size: 14px;
     }
 }
+/* Promo code feedback messages */
+
+.promo-message {
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.promo-success {
+    color: #198754 !important;
+}
+
+.promo-error {
+    color: #dc3545 !important;
+}
