@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
 import starIcon from "../../assets/star_icon.png"
 import starDullIcon from "../../assets/star_dull_icon.png"
@@ -11,6 +11,7 @@ export default function ProductDisplay(props) {
     const { product } = props
     const { addToCart } = useContext(ShopContext)
     const [selectedSize, setSelectedSize] = useState("")
+    const [isAdded, setIsAdded] = useState(false)
 
     const sizes = ["S", "M", "L", "XL", "XXL"]
 
@@ -19,8 +20,9 @@ export default function ProductDisplay(props) {
             alert("Please select a size")
             return
         }
-
+    
         addToCart(product.id, selectedSize)
+        setIsAdded(true)
     }
 
     return (
@@ -75,7 +77,10 @@ export default function ProductDisplay(props) {
                             <div
                                 key={size}
                                 className={selectedSize === size ? "selected" : ""}
-                                onClick={() => setSelectedSize(size)}
+                                onClick={() => {
+                                    setSelectedSize(size)
+                                    setIsAdded(false)
+                                }}
                             >
                                 {size}
                             </div>
@@ -86,6 +91,13 @@ export default function ProductDisplay(props) {
                 <button onClick={handleAddToCart}>
                     ADD TO CART
                 </button>
+
+                {isAdded && (
+                    <div className="add-to-cart-success">
+                        <span>✓ Added to cart successfully!</span>
+                        <Link to="/cart">View Cart →</Link>
+                    </div>
+                )}
 
                 <p className="product-display-right-category">
                     <span>Tag: </span> Modern, Latest
