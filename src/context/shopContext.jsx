@@ -1,4 +1,6 @@
+
 import { createContext, useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import allProducts from "../assets/all_product"
 
 export const ShopContext = createContext(null)
@@ -21,7 +23,7 @@ const ShopContextProvider = (props) => {
             return []
         }
     })
-    
+
     useEffect(() => {
         localStorage.setItem("cartItems", JSON.stringify(cartItems))
     }, [cartItems])
@@ -29,7 +31,7 @@ const ShopContextProvider = (props) => {
     useEffect(() => {
         localStorage.setItem("orders", JSON.stringify(orders))
     }, [orders])
-    
+
     const [showMenu, setShowMenu] = useState(false)
 
     const addToCart = (itemId, size) => {
@@ -117,6 +119,10 @@ const ShopContextProvider = (props) => {
             {props.children}
         </ShopContext.Provider>
     )
+}
+
+ShopContextProvider.propTypes = {
+    children: PropTypes.node.isRequired
 }
 
 export default ShopContextProvider
