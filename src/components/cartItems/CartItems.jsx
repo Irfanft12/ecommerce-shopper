@@ -174,18 +174,20 @@ export default function CartItems() {
 </div>
 
                 <div className="cart-items-promo-code">
+    {!appliedPromoCode && (
     <p>If you have a promo code, enter it here</p>
+)}
 
-    {appliedPromoCode ? (
-        <div>
-            <p className="promo-message promo-success">
-                {appliedPromoCode} applied successfully!
-            </p>
-            <button onClick={handleRemovePromo}>
-                Remove
-            </button>
-        </div>
-    ) : (
+{appliedPromoCode ? (
+    <div className="promo-applied">
+        <p className="promo-message promo-success">
+            {appliedPromoCode} applied successfully!
+        </p>
+        <button onClick={handleRemovePromo}>
+            Remove
+        </button>
+    </div>
+) : (
         <div className="cart-item-promo-box">
             <input
                 type="text"
