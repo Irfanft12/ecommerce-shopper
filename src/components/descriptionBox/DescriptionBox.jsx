@@ -37,7 +37,7 @@ export default function DescriptionBox() {
                             of all retail sales are likely to happen online—so if
                             you have a small business, you should probably have a
                             web store. The good news is that with the right tools,
-                            it's easy for any small business to quickly start
+                            it&apos;s easy for any small business to quickly start
                             selling online.
                         </p>
                         <p>
