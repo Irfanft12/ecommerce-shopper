@@ -32,6 +32,8 @@ const ShopContextProvider = (props) => {
     }, [orders])
 
     const [showMenu, setShowMenu] = useState(false)
+    const [appliedPromoCode, setAppliedPromoCode] = useState("")
+    const [discountPercentage, setDiscountPercentage] = useState(0)
 
     const addToCart = (itemId, size) => {
         const cartKey = `${itemId}_${size}`
@@ -59,6 +61,8 @@ const ShopContextProvider = (props) => {
 
     const clearCart = () => {
         setCartItems({})
+        setAppliedPromoCode("")
+        setDiscountPercentage(0)
     }
 
     const saveOrder = (order) => {
@@ -80,6 +84,26 @@ const ShopContextProvider = (props) => {
         }
 
         return totalAmount
+    }
+
+    const applyPromoCode = (code) => {
+        if (typeof code === "string" && code.trim().toUpperCase() === "SAVE10") {
+            setAppliedPromoCode("SAVE10")
+            setDiscountPercentage(10)
+            return true
+        }
+    
+        return false
+    }
+    
+    const removePromoCode = () => {
+        setAppliedPromoCode("")
+        setDiscountPercentage(0)
+    }
+    
+    const getDiscountedCartAmount = () => {
+        const subtotal = getTotalCartAmount()
+        return subtotal - (subtotal * discountPercentage / 100)
     }
 
     const getTotalCartItems = () => {
@@ -110,7 +134,11 @@ const ShopContextProvider = (props) => {
         toggleMobileMenu,
         closeMobileMenu,
         orders,
-        saveOrder
+        saveOrder,
+        appliedPromoCode,
+        applyPromoCode,
+        removePromoCode,
+        getDiscountedCartAmount
     }
 
     return (
