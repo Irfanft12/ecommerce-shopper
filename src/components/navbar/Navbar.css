@@ -152,6 +152,15 @@
         width: 30px;
         height: 30px;
     }
+    .nav-login-cart button.menu-icon:focus {
+        outline: none;
+    }
+    
+    .nav-login-cart button.menu-icon:focus-visible {
+        outline: 2px solid #ff4141;
+        outline-offset: 3px;
+        border-radius: 50%;
+    }
     .mobile-nav-menu {
         padding: 0;
         list-style: none;
