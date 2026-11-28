@@ -60,6 +60,72 @@ export default function CartItems() {
         </div>
     ) : (
         <div className="cart-items">
+            
+<div className="cart-mobile-list">
+    {Object.entries(cartItems).map(([cartKey, quantity]) => {
+        if (quantity <= 0) return null
+
+        const [itemId, size] = cartKey.split("_")
+        const item = allProducts.find(
+            product => product.id === Number(itemId)
+        )
+
+        if (!item) return null
+
+        return (
+            <div className="cart-mobile-card" key={cartKey}>
+                <img
+                    src={item.image}
+                    alt={item.name}
+                    className="cart-mobile-image"
+                />
+
+                <div className="cart-mobile-details">
+                    <h3>{item.name}</h3>
+                    <p className="cart-item-size">Size: {size}</p>
+                    <p className="cart-mobile-price">
+                        ${item.new_price}
+                    </p>
+
+                    <div className="cart-mobile-actions">
+                        <div className="cart-quantity-control">
+                            <button
+                                onClick={() =>
+                                    updateCartQuantity(cartKey, quantity - 1)
+                                }
+                                disabled={quantity <= 1}
+                                aria-label="Decrease quantity"
+                            >
+                                −
+                            </button>
+
+                            <span>{quantity}</span>
+
+                            <button
+                                onClick={() => addToCart(item.id, size)}
+                                aria-label="Increase quantity"
+                            >
+                                +
+                            </button>
+                        </div>
+
+                        <button
+                            className="cart-mobile-remove"
+                            onClick={() => removeFromCart(cartKey)}
+                        >
+                            Remove
+                        </button>
+                    </div>
+
+                    <p className="cart-mobile-item-total">
+                        Total: ${(item.new_price * quantity).toFixed(2)}
+                    </p>
+                </div>
+            </div>
+        )
+    })}
+</div>
+
             <div className="cart-table">
                 <div className="cart-items-format-main">
                     <p>Products</p>
