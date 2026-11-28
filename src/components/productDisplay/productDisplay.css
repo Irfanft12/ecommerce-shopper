@@ -184,11 +184,10 @@
         display: none;
     }
 
-    .product-display-main-image {
+   .product-display-main-image {
         width: 100%;
         max-width: 100%;
-        height: auto;
-        max-height: 550px;
+        height: 400px;
         object-fit: contain;
     }
 
