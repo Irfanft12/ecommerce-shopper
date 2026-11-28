@@ -38,7 +38,9 @@
 }
 @media (max-width: 767px) {
     .shopcategory-banner {
-        margin: 10px auto;
+        width: calc(100% - 30px);
+        height: auto;
+        margin: 10px auto 15px;
     }
     .shop-category-index-sort {
         margin: 0 auto;
