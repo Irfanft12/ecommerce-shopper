@@ -9,7 +9,16 @@ export default function Offers() {
                 <h1>Exclusive</h1>
                 <h1>Offers for you</h1>
                 <p>ONLY ON BEST SELLER PRODUCTS</p>
-                <button>Check Now</button>
+                <button
+                    onClick={() => {
+                        document.getElementById("popular")?.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        })
+                    }}
+                >
+                    Check Now
+                </button>
             </div>
             <div className="offers-right">
                <img src={exclusiveImage} alt="" />
