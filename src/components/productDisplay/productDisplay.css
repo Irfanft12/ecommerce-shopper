@@ -215,4 +215,23 @@
         padding: 12px 5px;
         text-align: center;
     }
+    .product-display-right-prices {
+        margin: 20px 0;
+    }
+    
+    .product-display-right-size-wrapper h1 {
+        margin-top: 25px;
+    }
+    
+    .product-display-right-size {
+        margin: 18px 0;
+    }
+    
+    .product-display-right button {
+        margin-bottom: 20px;
+    }
+    
+    .product-display-right-category {
+        margin-top: 0;
+    }
 }
