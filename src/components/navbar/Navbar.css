@@ -107,6 +107,10 @@
     background-color: red;
     color: white;
 }
+.mobile-nav-menu {
+    opacity: 0;
+    visibility: hidden;
+}
 
 @media (min-width: 768px) {
     .menu-icon {
