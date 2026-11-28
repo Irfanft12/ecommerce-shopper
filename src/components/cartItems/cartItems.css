@@ -393,11 +393,23 @@
 /* Promo button styling */
 .cart-item-promo-box button,
 .promo-applied button {
-    border: 1px solid transparent;
+    border: 1px solid #ff5a5a;
+    background-color: #ffffff;
+    color: #ff5a5a;
+    padding: 10px 22px;
+    font-size: 16px;
+    font-weight: 500;
     cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Keyboard focus styling */
+.cart-item-promo-box button:hover,
+.promo-applied button:hover {
+    background-color: #ff5a5a;
+    color: #ffffff;
+}
+
+/* Keyboard accessibility */
 .cart-item-promo-box button:focus-visible,
 .promo-applied button:focus-visible {
     outline: 2px solid #ff4141;
