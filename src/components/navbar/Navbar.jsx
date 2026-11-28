@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 
 import logo from "../../assets/logo.png"
 import cartIcon from "../../assets/cart_icon.png"
@@ -9,10 +9,38 @@ import "./Navbar.css";
 
 
 export default function Navbar() {
-    const {showMenu, toggleMobileMenu, closeMobileMenu, getTotalCartItems} = useContext(ShopContext)    
+    const {showMenu, toggleMobileMenu, closeMobileMenu, getTotalCartItems} = useContext(ShopContext)
+    const navbarRef = useRef(null)
+
+useEffect(() => {
+    if (!showMenu) return
+
+    const handleOutsideClick = (event) => {
+        if (
+            navbarRef.current &&
+            !navbarRef.current.contains(event.target)
+        ) {
+            closeMobileMenu()
+        }
+    }
+
+    const handleEscape = (event) => {
+        if (event.key === "Escape") {
+            closeMobileMenu()
+        }
+    }
+
+    document.addEventListener("pointerdown", handleOutsideClick)
+    document.addEventListener("keydown", handleEscape)
+
+    return () => {
+        document.removeEventListener("pointerdown", handleOutsideClick)
+        document.removeEventListener("keydown", handleEscape)
+    }
+}, [showMenu, closeMobileMenu])
     
     return (
-        <div className="navbar">
+        <div className="navbar" ref={navbarRef}>
             <Link to="/" className="nav-logo">
                 <img src={logo} alt="" />
                 <p>SHOPPER</p>
