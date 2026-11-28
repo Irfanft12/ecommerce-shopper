@@ -51,14 +51,23 @@ useEffect(() => {
                 <li><NavLink to="women">Women</NavLink></li>
                 <li><NavLink to="kids">Kids</NavLink></li>
             </ul>
-            {
-                showMenu &&   <ul className="mobile-nav-menu">
-                <li onClick={() => closeMobileMenu()}><NavLink to="/">Shop</NavLink> </li>
-                <li onClick={() => closeMobileMenu()}><NavLink to="men">Men</NavLink> </li>
-                <li onClick={() => closeMobileMenu()}><NavLink to="women">Women</NavLink> </li>
-                <li onClick={() => closeMobileMenu()}><NavLink to="kids">Kids</NavLink> </li>
+            <ul
+                className={`mobile-nav-menu ${showMenu ? "open" : ""}`}
+                aria-hidden={!showMenu}
+            >
+                <li onClick={() => closeMobileMenu()}>
+                    <NavLink to="/">Shop</NavLink>
+                </li>
+                <li onClick={() => closeMobileMenu()}>
+                    <NavLink to="men">Men</NavLink>
+                </li>
+                <li onClick={() => closeMobileMenu()}>
+                    <NavLink to="women">Women</NavLink>
+                </li>
+                <li onClick={() => closeMobileMenu()}>
+                    <NavLink to="kids">Kids</NavLink>
+                </li>
             </ul>
-            }
             <div className="nav-login-cart">
                 <Link to="/login"><button>Login</button></Link>
                 <Link className="cart-link" to="/cart"><img className="cart-icon" src={cartIcon} alt="" /></Link>
