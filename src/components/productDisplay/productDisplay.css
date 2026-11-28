@@ -115,6 +115,20 @@
     outline: 2px solid #ff4141;
     outline-offset: 3px;
 }
+.size-error {
+    color: #dc2626;
+    font-size: 14px;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.size-error::before {
+    content: "⚠";
+    font-size: 16px;
+}
 
 .add-to-cart-success {
     display: flex;
