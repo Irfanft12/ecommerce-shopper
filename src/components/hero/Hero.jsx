@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import "./Hero.css"
 import handIcon from "../../assets/hand_icon.png"
 import arrowIcon from "../../assets/arrow.png"
@@ -17,10 +16,10 @@ export default function Hero() {
                     <p>Collections</p>
                     <p>For everyone</p>
                 </div>
-                <Link to="/#new-collections" className="hero-latest-btn">
+                <a href="#new-collections" className="hero-latest-btn">
                     <div>Latest Collection</div>
                     <img src={arrowIcon} alt="" />
-                </Link>
+                </a>
             </div>
             <div className="hero-right">
                 <img src={heroImage} alt="" />
