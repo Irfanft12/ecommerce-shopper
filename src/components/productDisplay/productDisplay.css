@@ -115,6 +115,16 @@
     outline: 2px solid #ff4141;
     outline-offset: 3px;
 }
+.size-error-active .product-display-right-size > div {
+    border-color: #fca5a5;
+    background-color: #fffafa;
+}
+
+.size-error-active .product-display-right-size > div.selected {
+    border-color: #ff4141;
+    background-color: #fff0f0;
+    color: #ff4141;
+}
 .size-error {
     color: #dc2626;
     font-size: 14px;
