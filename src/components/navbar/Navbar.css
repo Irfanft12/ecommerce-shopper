@@ -110,6 +110,7 @@
 .mobile-nav-menu {
     opacity: 0;
     visibility: hidden;
+    display: none;
 }
 
 @media (min-width: 768px) {
@@ -182,6 +183,7 @@
         height: 24px;
     }
     .mobile-nav-menu {
+        display: block;
         opacity: 0;
         visibility: hidden;
         transform: translateY(-10px);
