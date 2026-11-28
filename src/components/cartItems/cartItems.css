@@ -390,3 +390,10 @@
     }
 }
 
+/* Promo button keyboard focus styling */
+.cart-item-promo-box button:focus-visible,
+.promo-applied button:focus-visible {
+    outline: 2px solid #ff4141;
+    outline-offset: 3px;
+}
+
