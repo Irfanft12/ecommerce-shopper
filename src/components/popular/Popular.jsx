@@ -5,7 +5,7 @@ import Item from "../item/Item";
 
 export default function Popular() {
   return (
-    <div className="popular">
+    <div className="popular" id="popular">
       <h1>POPULAR IN WOMEN</h1>
       <hr />
       <div className="popular-item">
