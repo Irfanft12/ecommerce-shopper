@@ -12,6 +12,7 @@ export default function ProductDisplay(props) {
     const { addToCart } = useContext(ShopContext)
     const [selectedSize, setSelectedSize] = useState("")
     const [isAdded, setIsAdded] = useState(false)
+    const [isSizeError, setIsSizeError] = useState(false)
 
     useEffect(() => {
         if (!isAdded) return
@@ -27,9 +28,11 @@ export default function ProductDisplay(props) {
 
     const handleAddToCart = () => {
         if (!selectedSize) {
-            alert("Please select a size")
+            setIsSizeError(true)
             return
         }
+        
+        setIsSizeError(false)
     
         addToCart(product.id, selectedSize)
         setIsAdded(true)
@@ -90,6 +93,7 @@ export default function ProductDisplay(props) {
                                 onClick={() => {
                                     setSelectedSize(size)
                                     setIsAdded(false)
+                                    setIsSizeError(false)
                                 }}
                             >
                                 {size}
@@ -97,6 +101,11 @@ export default function ProductDisplay(props) {
                         ))}
                     </div>
                 </div>
+                {isSizeError && (
+                    <p className="size-error">
+                        Please select a size before adding to cart.
+                    </p>
+                )}
 
                 <button onClick={handleAddToCart}>
                     ADD TO CART
