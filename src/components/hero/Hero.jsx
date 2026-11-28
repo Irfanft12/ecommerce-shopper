@@ -17,7 +17,7 @@ export default function Hero() {
                     <p>Collections</p>
                     <p>For everyone</p>
                 </div>
-                <Link to="#new-collections" className="hero-latest-btn">
+                <Link to="/#new-collections" className="hero-latest-btn">
                     <div>Latest Collection</div>
                     <img src={arrowIcon} alt="" />
                 </Link>
