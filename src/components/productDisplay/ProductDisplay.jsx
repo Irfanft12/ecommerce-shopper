@@ -82,7 +82,9 @@ export default function ProductDisplay(props) {
                         : "Explore comfortable and stylish kids' clothing, designed for everyday activities."}
                 </div>
 
-                <div className="product-display-right-size-wrapper">
+                <div className={`product-display-right-size-wrapper ${
+                    isSizeError ? "size-error-active" : ""
+                }`}>
                     <h1>Select size</h1>
 
                     <div className="product-display-right-size">
