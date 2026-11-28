@@ -282,3 +282,111 @@
     margin-top: 8px;
     margin-bottom: 0;
 }
+
+/* Mobile cart card layout */
+
+.cart-mobile-list {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .cart-items {
+        margin: 25px 20px;
+    }
+
+    /* Hide desktop table on mobile */
+    .cart-table {
+        display: none;
+    }
+
+    /* Show mobile product cards */
+    .cart-mobile-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .cart-mobile-card {
+        display: flex;
+        gap: 15px;
+        padding: 15px 0;
+        border-bottom: 1px solid #e2e2e2;
+    }
+
+    .cart-mobile-image {
+        width: 105px;
+        height: 135px;
+        object-fit: contain;
+        flex-shrink: 0;
+        background-color: #f7f7f7;
+    }
+
+    .cart-mobile-details {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .cart-mobile-details h3 {
+        font-size: 15px;
+        line-height: 1.4;
+        font-weight: 600;
+        margin: 0 0 8px;
+        color: #171717;
+    }
+
+    .cart-mobile-details .cart-item-size {
+        margin: 5px 0;
+    }
+
+    .cart-mobile-price {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 8px 0;
+    }
+
+    .cart-mobile-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .cart-mobile-remove {
+        border: none;
+        background: transparent;
+        color: #ff4141;
+        font-size: 13px;
+        cursor: pointer;
+        padding: 5px 0;
+    }
+
+    .cart-mobile-item-total {
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+
+    .cart-items-down {
+        margin: 35px 0;
+    }
+
+    .cart-items-total {
+        margin-right: 0;
+        gap: 20px;
+    }
+
+    .cart-items-total h1 {
+        font-size: 26px;
+    }
+
+    .cart-items-total button {
+        width: 100%;
+    }
+
+    .cart-item-promo-box {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
